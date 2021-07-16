@@ -1,0 +1,133 @@
+﻿@page
+@model TenderingApp.Areas.Organizations.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].OrganizationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].ContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].ContactPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].WebUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].Vdc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].WardNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].ToleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].Landmark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].MapUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].AboutOrg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organization[0].SubCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Organization) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganizationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.District)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vdc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WardNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Landmark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MapUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AboutOrg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.OrganizationName">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.OrganizationName">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.OrganizationName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@page
+@model TenderingApp.Areas.Categories.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category[0].CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category[0].AboutCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category[0].Icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Category) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AboutCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@item.CategoryName">Edit</a> |
+                <a asp-page="Details" asp-route-id="@item.CategoryName">Details</a> |
+                <a asp-page="Delete" asp-route-id="@item.CategoryName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
