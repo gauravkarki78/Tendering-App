@@ -8,15 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TenderingApp.Data;
 
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+
 namespace TenderingApp.Areas.Categories.Pages
 {
     public class EditModel : PageModel
     {
         private readonly TenderingApp.Data.ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public EditModel(TenderingApp.Data.ApplicationDbContext context)
+        public EditModel(TenderingApp.Data.ApplicationDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [BindProperty]
@@ -47,7 +52,39 @@ namespace TenderingApp.Areas.Categories.Pages
                 return Page();
             }
 
-            _context.Attach(Category).State = EntityState.Modified;
+            //Work on the image saving section
+
+            string webRootPath = _hostingEnvironment.WebRootPath;
+            var files = HttpContext.Request.Form.Files;
+
+            var categoryItemFromDb = await _context.Category.FindAsync(Category.CategoryName);
+
+            Console.WriteLine(files.Count);
+
+            if (files.Count > 0)
+            {
+                //New Image has been uploaded
+                var uploads = Path.Combine(webRootPath, @"images\Category");
+                var extension_new = Path.GetExtension(files[0].FileName);
+
+                //Delete the original file
+                var imagePath = Path.Combine(webRootPath, categoryItemFromDb.Icon.TrimStart('\\'));
+
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
+
+                //we will upload the new file
+                using (var filesStream = new FileStream(Path.Combine(uploads, Category.CategoryName + extension_new), FileMode.Create))
+                {
+                    files[0].CopyTo(filesStream);
+                }
+                categoryItemFromDb.Icon = @"\images\Category\" + Category.CategoryName + extension_new;
+            }
+
+            categoryItemFromDb.AboutCategory = Category.AboutCategory;
+            categoryItemFromDb.Status = Category.Status;
 
             try
             {

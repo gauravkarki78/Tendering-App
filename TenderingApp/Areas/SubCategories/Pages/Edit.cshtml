@@ -12,9 +12,14 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SubCategory.SubCategoryId" />
+            <div class="form-group">
+                <label asp-for="SubCategory.CategoryName" class="control-label"></label>
+                <select asp-for="SubCategory.CategoryName" class="form-control" asp-items="ViewBag.CategoryName"></select>
+                <span asp-validation-for="SubCategory.CategoryName" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="SubCategory.SubCategoryName" class="control-label"></label>
                 <input asp-for="SubCategory.SubCategoryName" class="form-control" />
@@ -25,11 +30,18 @@
                 <input asp-for="SubCategory.AboutSubCategory" class="form-control" />
                 <span asp-validation-for="SubCategory.AboutSubCategory" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="SubCategory.Icon" class="control-label"></label>
-                <input asp-for="SubCategory.Icon" class="form-control" />
-                <span asp-validation-for="SubCategory.Icon" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+            <label asp-for="SubCategory.Icon" class="control-label"></label>
+            <input asp-for="SubCategory.Icon" class="form-control" />
+            <span asp-validation-for="SubCategory.Icon" class="text-danger"></span>
+        </div>*@
+            <label asp-for="SubCategory.Icon" class="control-label"></label>
+            <br />
+            <input value="@Model.SubCategory.Icon" type="file" name="files" />
+            <span asp-validation-for="SubCategory.Icon" class="text-danger"></span>
+            <br />
+            <br />
+
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="SubCategory.Status" /> @Html.DisplayNameFor(model => model.SubCategory.Status)

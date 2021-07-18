@@ -2,7 +2,7 @@
 @model TenderingApp.Areas.SubCategories.Pages.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "SubCategory Details";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
@@ -12,6 +12,12 @@
     <h4>SubCategory</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubCategory.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubCategory.Category.CategoryName)
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.SubCategory.SubCategoryName)
         </dt>
@@ -28,7 +34,7 @@
             @Html.DisplayNameFor(model => model.SubCategory.Icon)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.SubCategory.Icon)
+            <img src="@Model.SubCategory.Icon">
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.SubCategory.Status)

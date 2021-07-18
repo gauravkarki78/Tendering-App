@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -8,9 +8,17 @@
 
   <ItemGroup>
     <Compile Remove="Areas\NewFolder1\**" />
+    <Compile Remove="Areas\SubCategories\Controllers\**" />
     <Content Remove="Areas\NewFolder1\**" />
+    <Content Remove="Areas\SubCategories\Controllers\**" />
     <EmbeddedResource Remove="Areas\NewFolder1\**" />
+    <EmbeddedResource Remove="Areas\SubCategories\Controllers\**" />
     <None Remove="Areas\NewFolder1\**" />
+    <None Remove="Areas\SubCategories\Controllers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\SubCategories\Pages\GetSubCategory.cs" />
   </ItemGroup>
 
   <ItemGroup>

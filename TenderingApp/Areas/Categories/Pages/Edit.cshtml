@@ -2,34 +2,38 @@
 @model TenderingApp.Areas.Categories.Pages.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Category";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Edit</h1>
 
-<h4>Category</h4>
+<h4>Category @Model.Category.CategoryName</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                <label asp-for="Category.CategoryId" class="control-label"></label>
-                <input asp-for="Category.CategoryId" class="form-control" />
-                <span asp-validation-for="Category.CategoryId" class="text-danger"></span>
-            </div>*@
+            <input type="hidden" asp-for="Category.CategoryId" />
             <input type="hidden" asp-for="Category.CategoryName" />
             <div class="form-group">
                 <label asp-for="Category.AboutCategory" class="control-label"></label>
                 <input asp-for="Category.AboutCategory" class="form-control" />
                 <span asp-validation-for="Category.AboutCategory" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Category.Icon" class="control-label"></label>
-                <input asp-for="Category.Icon" class="form-control" />
-                <span asp-validation-for="Category.Icon" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+        <label asp-for="Category.Icon" class="control-label"></label>
+        <input asp-for="Category.Icon" class="form-control" />
+        <span asp-validation-for="Category.Icon" class="text-danger"></span>
+        </div>*@
+
+            <label asp-for="Category.Icon" class="control-label"></label>
+            <br />
+            <input value="@Model.Category.Icon" type="file" name="files" />
+            <span asp-validation-for="Category.Icon" class="text-danger"></span>
+
+            <br>
+            <br>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Category.Status" /> @Html.DisplayNameFor(model => model.Category.Status)

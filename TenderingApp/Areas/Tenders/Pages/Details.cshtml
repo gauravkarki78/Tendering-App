@@ -52,7 +52,8 @@
             @Html.DisplayNameFor(model => model.Tender.Organization)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Tender.Organization.OrganizationName)
+            @*@Html.DisplayFor(model => model.Tender.Organization.OrganizationName)*@
+            <a asp-area="Organizations" asp-page="Details" asp-route-id="@Model.Tender.Organization.OrganizationName" >@Model.Tender.Organization.OrganizationName</a>
         </dd>
     </dl>
 </div>

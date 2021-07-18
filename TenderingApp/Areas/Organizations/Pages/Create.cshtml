@@ -1,8 +1,9 @@
 ﻿@page
 @model TenderingApp.Areas.Organizations.Pages.CreateModel
+@using TenderingApp.Extensions
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Organization";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
@@ -12,90 +13,98 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Organization.OrganizationName" class="control-label"></label>
-                <input asp-for="Organization.OrganizationName" class="form-control" />
-                <span asp-validation-for="Organization.OrganizationName" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.OrganizationName" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.OrganizationName" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.OrganizationName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.ContactNo" class="control-label"></label>
-                <input asp-for="Organization.ContactNo" class="form-control" />
-                <span asp-validation-for="Organization.ContactNo" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.ContactNo" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.ContactNo" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.ContactNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.EmailAddress" class="control-label"></label>
-                <input asp-for="Organization.EmailAddress" class="form-control" />
-                <span asp-validation-for="Organization.EmailAddress" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.EmailAddress" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.EmailAddress" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.EmailAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.ContactPerson" class="control-label"></label>
-                <input asp-for="Organization.ContactPerson" class="form-control" />
-                <span asp-validation-for="Organization.ContactPerson" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.ContactPerson" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.ContactPerson" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.ContactPerson" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.WebUrl" class="control-label"></label>
-                <input asp-for="Organization.WebUrl" class="form-control" />
-                <span asp-validation-for="Organization.WebUrl" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.WebUrl" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.WebUrl" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.WebUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.Country" class="control-label"></label>
-                <input asp-for="Organization.Country" class="form-control" />
-                <span asp-validation-for="Organization.Country" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.Country" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.Country" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.Country" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.State" class="control-label"></label>
-                <input asp-for="Organization.State" class="form-control" />
-                <span asp-validation-for="Organization.State" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.State" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.State" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.State" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.District" class="control-label"></label>
-                <input asp-for="Organization.District" class="form-control" />
-                <span asp-validation-for="Organization.District" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.District" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.District" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.District" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.Vdc" class="control-label"></label>
-                <input asp-for="Organization.Vdc" class="form-control" />
-                <span asp-validation-for="Organization.Vdc" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.Vdc" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.Vdc" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.Vdc" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.WardNo" class="control-label"></label>
-                <input asp-for="Organization.WardNo" class="form-control" />
-                <span asp-validation-for="Organization.WardNo" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.WardNo" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.WardNo" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.WardNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.ToleName" class="control-label"></label>
-                <input asp-for="Organization.ToleName" class="form-control" />
-                <span asp-validation-for="Organization.ToleName" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.ToleName" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.ToleName" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.ToleName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.Landmark" class="control-label"></label>
-                <input asp-for="Organization.Landmark" class="form-control" />
-                <span asp-validation-for="Organization.Landmark" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.Landmark" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.Landmark" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.Landmark" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="OrganizationVM.Organization.Logo" class="control-label"></label>
+                    <input asp-for="OrganizationVM.Organization.Logo" class="form-control" />
+                    <span asp-validation-for="OrganizationVM.Organization.Logo" class="text-danger"></span>
+                </div>*@
+
+            <label asp-for="OrganizationVM.Organization.Logo" class="control-label"></label>
+            <input type="file" name="files" />
+            <span asp-validation-for="OrganizationVM.Organization.Logo" class="text-danger"></span>
+            <br />
+            <br />
+
+            <div class="form-group">
+                <label asp-for="OrganizationVM.Organization.MapUrl" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.MapUrl" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.MapUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.Logo" class="control-label"></label>
-                <input asp-for="Organization.Logo" class="form-control" />
-                <span asp-validation-for="Organization.Logo" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.AboutOrg" class="control-label"></label>
+                <input asp-for="OrganizationVM.Organization.AboutOrg" class="form-control" />
+                <span asp-validation-for="OrganizationVM.Organization.AboutOrg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Organization.MapUrl" class="control-label"></label>
-                <input asp-for="Organization.MapUrl" class="form-control" />
-                <span asp-validation-for="Organization.MapUrl" class="text-danger"></span>
+                <label asp-for="OrganizationVM.Organization.CategoryName" class="control-label"></label>
+                <select asp-for="@Model.OrganizationVM.Organization.CategoryName" class="form-control" id="CategoryName" asp-items="Model.OrganizationVM.Category.ToSelectListItem(Model.OrganizationVM.Organization.CategoryName)"></select>
             </div>
+
             <div class="form-group">
-                <label asp-for="Organization.AboutOrg" class="control-label"></label>
-                <input asp-for="Organization.AboutOrg" class="form-control" />
-                <span asp-validation-for="Organization.AboutOrg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Organization.CategoryName" class="control-label"></label>
-                <select asp-for="Organization.CategoryName" class ="form-control" asp-items="ViewBag.CategoryName"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Organization.SubCategoryId" class="control-label"></label>
-                <select asp-for="Organization.SubCategoryId" class ="form-control" asp-items="ViewBag.SubCategoryId"></select>
+                <label asp-for="OrganizationVM.Organization.SubCategoryId" class="control-label"></label>
+                <select asp-for="OrganizationVM.Organization.SubCategoryId" class="form-control" name="SubCategoryId" id="SubCategoryId" asp-items="@(new SelectList(string.Empty,"SubCategoryId","SubCategoryName"))"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -109,5 +118,32 @@
 </div>
 
 @section Scripts {
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            getSubCategory();
+            $('#CategoryName').change(function () {
+                getSubCategory();
+            });
+        });
+
+        function getSubCategory() {
+            var url = '@Url.Content("~/")' + "SubCategories/GetSubCategory";
+            var ddlsoruce = '#CategoryName';
+            $.getJSON(url, { id: $(ddlsoruce).val() }, function (data) {
+                var items = '';
+                $('#SubCategoryId').empty();
+                $.each(data, function (i, subcategory) {
+                    items += "<option value='" + subcategory.value + "'>" + subcategory.text + "</option>";
+                });
+
+                $('#SubCategoryId').html(items);
+            })
+        }
+
+
+    </script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

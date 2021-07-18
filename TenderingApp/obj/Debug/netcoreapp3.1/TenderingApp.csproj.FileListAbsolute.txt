@@ -433,11 +433,6 @@ E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Categories\
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Categories\Pages\Details.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Categories\Pages\Edit.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Categories\Pages\Index.cshtml.g.cs
-E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Create.cshtml.g.cs
-E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Delete.cshtml.g.cs
-E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Details.cshtml.g.cs
-E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Edit.cshtml.g.cs
-E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Index.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Organizations\Pages\Create.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Organizations\Pages\Delete.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Organizations\Pages\Details.cshtml.g.cs
@@ -450,5 +445,11 @@ E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Tenders\Pag
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Tenders\Pages\Index.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Categories\Pages\_ViewImports.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Organizations\Pages\_ViewImports.cshtml.g.cs
-E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\_ViewImports.cshtml.g.cs
 E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\Tenders\Pages\_ViewImports.cshtml.g.cs
+E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Create.cshtml.g.cs
+E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Delete.cshtml.g.cs
+E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Details.cshtml.g.cs
+E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Edit.cshtml.g.cs
+E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\Index.cshtml.g.cs
+E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\_ViewImports.cshtml.g.cs
+E:\Dev\TenderingApp\TenderingApp\obj\Debug\netcoreapp3.1\Razor\Areas\SubCategories\Pages\GetSubCategory.cshtml.g.cs

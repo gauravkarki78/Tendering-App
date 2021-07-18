@@ -15,14 +15,17 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.SubCategory[0].SubCategoryName)
+                @Html.DisplayNameFor(model => model.SubCategory[0].Category)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.SubCategory[0].SubCategoryName)
+            </th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.SubCategory[0].AboutSubCategory)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SubCategory[0].Icon)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.SubCategory[0].Status)
             </th>
@@ -33,14 +36,17 @@
 @foreach (var item in Model.SubCategory) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SubCategoryName)
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.SubCategoryName)
+            </td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.AboutSubCategory)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Icon)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>

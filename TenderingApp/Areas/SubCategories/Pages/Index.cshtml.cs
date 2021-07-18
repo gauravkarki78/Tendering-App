@@ -22,7 +22,8 @@ namespace TenderingApp.Areas.SubCategories.Pages
 
         public async Task OnGetAsync()
         {
-            SubCategory = await _context.SubCategory.ToListAsync();
+            SubCategory = await _context.SubCategory
+                .Include(s => s.Category).ToListAsync();
         }
     }
 }

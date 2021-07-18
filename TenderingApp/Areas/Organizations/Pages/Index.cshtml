@@ -2,7 +2,7 @@
 @model TenderingApp.Areas.Organizations.Pages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Organization Index";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
@@ -15,9 +15,9 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Organization[0].OrganizationId)
+                @Html.DisplayNameFor(model => model.Organization[0].OrganizationName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Organization[0].ContactNo)
             </th>
             <th>
@@ -58,12 +58,12 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Organization[0].AboutOrg)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Organization[0].Category)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Organization[0].SubCategory)
+                @Html.DisplayNameFor(model => model.Organization[0].SubCategory.SubCategoryName)
             </th>
             <th></th>
         </tr>
@@ -72,9 +72,9 @@
 @foreach (var item in Model.Organization) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.OrganizationId)
+                @Html.DisplayFor(modelItem => item.OrganizationName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.ContactNo)
             </td>
             <td>
@@ -115,12 +115,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AboutOrg)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Category.CategoryName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryId)
+                @Html.DisplayFor(modelItem => item.SubCategory.SubCategoryName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.OrganizationName">Edit</a> |

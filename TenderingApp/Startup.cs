@@ -13,6 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TenderingApp.Data;
 
+using TenderingApp.Services;
+
 namespace TenderingApp
 {
     public class Startup
@@ -32,7 +34,38 @@ namespace TenderingApp
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddRazorPages(); 
+            //services.AddRazorPages();
+            services.AddRazorPages(options =>
+                {
+                    options.Conventions.AuthorizeAreaPage("Categories", "/Index");
+                    options.Conventions.AuthorizeAreaPage("Categories", "/Create");
+                    options.Conventions.AuthorizeAreaPage("Categories", "/Edit");
+                    options.Conventions.AuthorizeAreaPage("Categories", "/Details");
+                    options.Conventions.AuthorizeAreaPage("Categories", "/Delete");
+
+                    options.Conventions.AuthorizeAreaPage("SubCategories", "/Index");
+                    options.Conventions.AuthorizeAreaPage("SubCategories", "/Create");
+                    options.Conventions.AuthorizeAreaPage("SubCategories", "/Edit");
+                    options.Conventions.AuthorizeAreaPage("SubCategories", "/Details");
+                    options.Conventions.AuthorizeAreaPage("SubCategories", "/Delete");
+
+                    options.Conventions.AuthorizeAreaPage("Organizations", "/Index");
+                    options.Conventions.AuthorizeAreaPage("Organizations", "/Create");
+                    options.Conventions.AuthorizeAreaPage("Organizations", "/Edit");
+                    //options.Conventions.AuthorizeAreaPage("Organizations", "/Details");
+                    options.Conventions.AuthorizeAreaPage("Organizations", "/Delete");
+                    
+                    options.Conventions.AuthorizeAreaPage("Tenders", "/Create");
+                    options.Conventions.AuthorizeAreaPage("Tenders", "/Edit");                    
+                    options.Conventions.AuthorizeAreaPage("Tenders", "/Delete");
+
+                });
+
+            services.AddTransient<ISubCategoryService, SubCategoryService>();
+
+
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

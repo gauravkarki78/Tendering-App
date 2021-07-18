@@ -2,21 +2,21 @@
 @model TenderingApp.Areas.Organizations.Pages.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Organization Details";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <h1>Details</h1>
-
+<img src="@Model.Organization.Logo">
 <div>
-    <h4>Organization</h4>
+    
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Organization.OrganizationId)
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Organization.OrganizationName)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Organization.OrganizationId)
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Organization.OrganizationName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Organization.ContactNo)
@@ -84,12 +84,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Organization.Landmark)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Organization.Logo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Organization.Logo)
-        </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Organization.MapUrl)
         </dt>
@@ -112,7 +107,7 @@
             @Html.DisplayNameFor(model => model.Organization.SubCategory)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Organization.SubCategory.SubCategoryId)
+            @Html.DisplayFor(model => model.Organization.SubCategory.SubCategoryName)
         </dd>
     </dl>
 </div>

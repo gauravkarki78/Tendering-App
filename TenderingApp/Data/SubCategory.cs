@@ -20,7 +20,12 @@ namespace TenderingApp.Data
 
         //Foreign key for Category
         //public string CategoryName { get; set;  }
-        public Category Category { get; set; }
+        [Display(Name = "Category")]
+        public string CategoryName { get; set; }
+
+        [ForeignKey("CategoryName")]
+        public virtual Category Category { get; set; }
+
 
 
         [Column(TypeName = "nvarchar(50)")]

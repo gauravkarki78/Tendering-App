@@ -24,9 +24,17 @@ namespace TenderingApp.Data
                 .HasIndex(c => c.CategoryId)
                 .IsUnique();
 
+            builder.Entity<Category>().HasAlternateKey(c => c.CategoryId).HasName("AlternateKey_CategoryId");
+
+            builder.Entity<SubCategory>()
+                .HasIndex(s => s.SubCategoryName)
+                .IsUnique();
+
             builder.Entity<Organization>()
                 .HasIndex(o => o.OrganizationId)
                 .IsUnique();
+
+            builder.Entity<Organization>().HasAlternateKey(o => o.OrganizationId).HasName("AlternateKey_OrganizationId");
 
             //builder.Entity<Category>().HasMany(c => c.SubCategories).WithRequired(s => s.Category).HasForeignKey(s => s.Category).WillCascadeOnDelete(true);
             base.OnModelCreating(builder);

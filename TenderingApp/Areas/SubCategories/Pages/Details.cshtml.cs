@@ -27,7 +27,8 @@ namespace TenderingApp.Areas.SubCategories.Pages
                 return NotFound();
             }
 
-            SubCategory = await _context.SubCategory.FirstOrDefaultAsync(m => m.SubCategoryId == id);
+            SubCategory = await _context.SubCategory
+                .Include(s => s.Category).FirstOrDefaultAsync(m => m.SubCategoryId == id);
 
             if (SubCategory == null)
             {

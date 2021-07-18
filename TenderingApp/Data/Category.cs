@@ -9,11 +9,11 @@ namespace TenderingApp.Data
 {
     public class Category
     {
-        public Category()
-        {
-            Icon = "~/img/Category/DefaultCategory.jpg";
-            Status = false;
-        }
+        //public Category()
+        //{
+        //    Icon = "/images/Category/DefaultCategory.jpg";
+        //    Status = false;
+        //}
         
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }

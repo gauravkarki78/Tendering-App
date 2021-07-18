@@ -8,15 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TenderingApp.Data;
 
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
+
 namespace TenderingApp.Areas.SubCategories.Pages
 {
     public class EditModel : PageModel
     {
         private readonly TenderingApp.Data.ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public EditModel(TenderingApp.Data.ApplicationDbContext context)
+        public EditModel(TenderingApp.Data.ApplicationDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         [BindProperty]
@@ -29,12 +34,14 @@ namespace TenderingApp.Areas.SubCategories.Pages
                 return NotFound();
             }
 
-            SubCategory = await _context.SubCategory.FirstOrDefaultAsync(m => m.SubCategoryId == id);
+            SubCategory = await _context.SubCategory
+                .Include(s => s.Category).FirstOrDefaultAsync(m => m.SubCategoryId == id);
 
             if (SubCategory == null)
             {
                 return NotFound();
             }
+           ViewData["CategoryName"] = new SelectList(_context.Category, "CategoryName", "CategoryName");
             return Page();
         }
 
@@ -47,7 +54,37 @@ namespace TenderingApp.Areas.SubCategories.Pages
                 return Page();
             }
 
-            _context.Attach(SubCategory).State = EntityState.Modified;
+            string webRootPath = _hostingEnvironment.WebRootPath;
+            var files = HttpContext.Request.Form.Files;
+
+            var subcategoryItemFromDb = await _context.SubCategory.FindAsync(SubCategory.SubCategoryId);
+
+            if (files.Count > 0)
+            {
+                //New Image has been uploaded
+                var uploads = Path.Combine(webRootPath, @"images\SubCategory");
+                var extension_new = Path.GetExtension(files[0].FileName);
+
+                //Delete the original file
+                var imagePath = Path.Combine(webRootPath, subcategoryItemFromDb.Icon.TrimStart('\\'));
+
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
+
+                //we will upload the new file
+                using (var filesStream = new FileStream(Path.Combine(uploads, SubCategory.SubCategoryId + extension_new), FileMode.Create))
+                {
+                    files[0].CopyTo(filesStream);
+                }
+                subcategoryItemFromDb.Icon = @"\images\SubCategory\" + SubCategory.SubCategoryId + extension_new;
+            }
+
+            subcategoryItemFromDb.CategoryName = SubCategory.CategoryName;
+            subcategoryItemFromDb.SubCategoryName = SubCategory.SubCategoryName;
+            subcategoryItemFromDb.AboutSubCategory = SubCategory.AboutSubCategory;
+            subcategoryItemFromDb.Status = SubCategory.Status;
 
             try
             {

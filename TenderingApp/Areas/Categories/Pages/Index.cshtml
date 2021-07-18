@@ -2,7 +2,7 @@
 @model TenderingApp.Areas.Categories.Pages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index Category";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
@@ -15,14 +15,14 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Category[0].CategoryId)
+                @Html.DisplayNameFor(model => model.Category[0].CategoryName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Category[0].AboutCategory)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Category[0].Icon)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Category[0].Status)
             </th>
@@ -33,14 +33,14 @@
 @foreach (var item in Model.Category) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.AboutCategory)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Icon)
-            </td>
+                <img class="img-responsive" src="@Html.DisplayFor(modelItem => item.Icon)" alt="">
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
