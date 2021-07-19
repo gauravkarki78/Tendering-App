@@ -48,6 +48,7 @@ namespace TenderingApp
                     options.Conventions.AuthorizeAreaPage("SubCategories", "/Edit");
                     options.Conventions.AuthorizeAreaPage("SubCategories", "/Details");
                     options.Conventions.AuthorizeAreaPage("SubCategories", "/Delete");
+                    options.Conventions.AuthorizeAreaPage("SubCategories", "/GetSubCategory");
 
                     options.Conventions.AuthorizeAreaPage("Organizations", "/Index");
                     options.Conventions.AuthorizeAreaPage("Organizations", "/Create");
